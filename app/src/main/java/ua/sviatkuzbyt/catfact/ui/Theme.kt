@@ -44,7 +44,8 @@ data class ThemeTypes(
     val basic: TextStyle,
     val basicBold: TextStyle,
     val big: TextStyle,
-    val bigBold: TextStyle
+    val bigBold: TextStyle,
+    val white: TextStyle
 ){
     companion object{
         private val fontFamily = FontFamily(
@@ -76,6 +77,12 @@ data class ThemeTypes(
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 color = colors.text
+            ),
+            white = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = colors.white
             )
         )
     }

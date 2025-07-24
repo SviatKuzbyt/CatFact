@@ -39,6 +39,7 @@ fun ColumnScope.Card(
             .padding(16.dp)
             .clipScrollableContainer(Orientation.Vertical)
     ) {
+        // Image
         AsyncImage(
             model = fact.imageUrl,
             contentDescription = null,
@@ -50,12 +51,14 @@ fun ColumnScope.Card(
         )
         Spacer(Modifier.size(16.dp))
 
+        // Text
         Text(
             text = fact.text,
             style = Theme.types.big,
             modifier = Modifier.weight(1f)
         )
 
+        // Share Button
         ButtonIcon(
             modifier = Modifier.align(Alignment.End),
             icon = R.drawable.share_ic,

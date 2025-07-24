@@ -3,4 +3,6 @@
     <string name="logo">Logo</string>
     <string name="facts_language">Language for facts</string>
     <string name="share">Share</string>
+    <string name="next">Next fact</string>
+    <string name="loading">…</string>
 </resources>
