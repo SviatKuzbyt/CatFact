@@ -1,13 +1,12 @@
 package ua.sviatkuzbyt.catfact.ui.screen
 
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import ua.sviatkuzbyt.catfact.ui.Theme
+import ua.sviatkuzbyt.catfact.ui.elements.TopBar
 
 @Composable
 fun MainScreen(){
-    Text(
-        text = "Hello, Cat Fact!",
-        style = Theme.types.bigBold
-    )
+    Column {
+        TopBar {  }
+    }
 }

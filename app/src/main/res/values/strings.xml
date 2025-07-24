@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CatFact</string>
+    <string name="logo">Logo</string>
+    <string name="facts_language">Language for facts</string>
 </resources>
