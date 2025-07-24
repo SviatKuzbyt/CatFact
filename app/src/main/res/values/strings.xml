@@ -5,4 +5,5 @@
     <string name="share">Share</string>
     <string name="next">Next fact</string>
     <string name="loading">…</string>
+    <string name="error">Error</string>
 </resources>

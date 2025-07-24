@@ -1,8 +1,6 @@
-package ua.sviatkuzbyt.catfact.ui.elements
+package ua.sviatkuzbyt.catfact.ui.elements.card
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clipScrollableContainer
-import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
@@ -24,9 +22,10 @@ import coil3.compose.AsyncImage
 import ua.sviatkuzbyt.catfact.R
 import ua.sviatkuzbyt.catfact.data.structures.Fact
 import ua.sviatkuzbyt.catfact.ui.Theme
+import ua.sviatkuzbyt.catfact.ui.elements.buttons.ButtonIcon
 
 @Composable
-fun ColumnScope.Card(
+fun ColumnScope.InfoCard(
     fact: Fact
 ){
     Column(
@@ -48,6 +47,10 @@ fun ColumnScope.Card(
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
+                .background(
+                    color = Theme.colors.background,
+                    shape = RoundedCornerShape(8.dp)
+                )
                 .clip(RoundedCornerShape(8.dp))
                 .aspectRatio(1f)
         )

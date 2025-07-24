@@ -5,10 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import org.koin.androidx.compose.koinViewModel
-import ua.sviatkuzbyt.catfact.data.structures.Fact
-import ua.sviatkuzbyt.catfact.ui.elements.ButtonNext
-import ua.sviatkuzbyt.catfact.ui.elements.Card
+import ua.sviatkuzbyt.catfact.ui.elements.buttons.ButtonNext
+import ua.sviatkuzbyt.catfact.ui.elements.card.InfoCard
 import ua.sviatkuzbyt.catfact.ui.elements.TopBar
+import ua.sviatkuzbyt.catfact.ui.elements.card.ErrorCard
+import ua.sviatkuzbyt.catfact.ui.elements.card.LoadingCard
 
 @Composable
 fun MainScreen(){
@@ -18,10 +19,11 @@ fun MainScreen(){
         TopBar {  }
 
         when(cardState){
-            is CardState.Error -> ""
-            CardState.Loading -> ""
-            is CardState.Success -> Card((cardState as CardState.Success).fact)
+            is CardState.Error -> ErrorCard((cardState as CardState.Error).message)
+            CardState.Loading -> LoadingCard()
+            is CardState.Success -> InfoCard((cardState as CardState.Success).fact)
         }
+
         ButtonNext{
             viewModel.loadFact()
         }

@@ -1,4 +1,4 @@
-package ua.sviatkuzbyt.catfact.ui.elements
+package ua.sviatkuzbyt.catfact.ui.elements.buttons
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
