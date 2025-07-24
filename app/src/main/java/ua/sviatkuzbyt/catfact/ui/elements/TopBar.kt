@@ -24,7 +24,7 @@ fun TopBar(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .padding(horizontal = 16.dp)
-            .padding(bottom = 16.dp)
+            .padding(bottom = 8.dp)
     ) {
         //Logo
         Icon(
