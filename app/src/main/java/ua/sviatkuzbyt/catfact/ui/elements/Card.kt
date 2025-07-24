@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,7 +39,7 @@ fun ColumnScope.Card(
                 shape = RoundedCornerShape(24.dp)
             )
             .padding(16.dp)
-            .clipScrollableContainer(Orientation.Vertical)
+            .verticalScroll(rememberScrollState())
     ) {
         // Image
         AsyncImage(
@@ -55,8 +57,9 @@ fun ColumnScope.Card(
         Text(
             text = fact.text,
             style = Theme.types.big,
-            modifier = Modifier.weight(1f)
         )
+
+        Spacer(Modifier.weight(1f))
 
         // Share Button
         ButtonIcon(

@@ -8,11 +8,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import ua.sviatkuzbyt.catfact.ui.CatFactTheme
 import ua.sviatkuzbyt.catfact.ui.Theme
 import ua.sviatkuzbyt.catfact.ui.screen.MainScreen

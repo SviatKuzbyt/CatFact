@@ -20,7 +20,6 @@ import ua.sviatkuzbyt.catfact.ui.Theme
 
 @Composable
 fun ButtonNext(
-    isLoading: Boolean,
     onClick: () -> Unit
 ){
     Box(
@@ -37,19 +36,13 @@ fun ButtonNext(
                 onClick = onClick,
                 role = Role.Button,
                 interactionSource = null,
-                enabled = !isLoading,
                 indication = ripple(
                     color = Theme.colors.background
                 )
             )
     ){
-        val text = if (isLoading) {
-            R.string.loading
-        } else {
-            R.string.next
-        }
         Text(
-            text = stringResource(text),
+            text = stringResource(R.string.next),
             style = Theme.types.white
         )
     }

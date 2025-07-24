@@ -68,7 +68,7 @@ data class ThemeTypes(
             ),
             big = TextStyle(
                 fontFamily = fontFamily,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
                 color = colors.text
             ),
