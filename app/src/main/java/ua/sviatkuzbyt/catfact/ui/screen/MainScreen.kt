@@ -33,7 +33,7 @@ fun MainScreen(){
         }
 
         ButtonNext{
-            viewModel.loadFact()
+            viewModel.nextFact()
         }
     }
 }

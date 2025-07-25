@@ -10,12 +10,6 @@ import ua.sviatkuzbyt.catfact.data.managers.FactManager
 import ua.sviatkuzbyt.catfact.data.managers.ImageManager
 import ua.sviatkuzbyt.catfact.data.structures.Fact
 
-sealed class CardState {
-    data object Loading : CardState()
-    data class Success(val fact: Fact) : CardState()
-    data class Error(val message: String) : CardState()
-}
-
 class MainViewModel(
     private val factManager: FactManager,
     private val imageManager: ImageManager,
@@ -23,11 +17,15 @@ class MainViewModel(
     private val _card = MutableStateFlow<CardState>(CardState.Loading)
     val card: StateFlow<CardState> = _card
 
-    init {
-        loadFact()
+    init { loadFact() }
+
+    fun nextFact() {
+        if (_card.value !is CardState.Loading) {
+            loadFact()
+        }
     }
 
-    fun loadFact() = viewModelScope.launch(Dispatchers.IO) {
+    private fun loadFact() = viewModelScope.launch(Dispatchers.IO) {
         _card.value = CardState.Loading
         try {
             val fact = factManager.getFactText("ukr")
