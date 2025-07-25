@@ -2,8 +2,9 @@
     <string name="app_name">CatFact</string>
     <string name="logo">Logo</string>
     <string name="facts_language">Language for facts</string>
-    <string name="share">Share</string>
+    <string name="share">Share fact</string>
     <string name="next">Next fact</string>
     <string name="loading">…</string>
     <string name="error">Error</string>
+    <string name="cant_share">Failed to share fact =(</string>
 </resources>

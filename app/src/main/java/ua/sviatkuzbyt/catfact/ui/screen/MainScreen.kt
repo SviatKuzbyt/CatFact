@@ -1,7 +1,6 @@
 package ua.sviatkuzbyt.catfact.ui.screen
 
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -32,7 +31,6 @@ fun MainScreen(){
                 is CardState.Success -> InfoCard(it.fact)
             }
         }
-
 
         ButtonNext{
             viewModel.loadFact()
