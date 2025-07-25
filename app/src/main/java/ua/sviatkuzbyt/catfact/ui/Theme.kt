@@ -20,6 +20,7 @@ data class ThemeColors(
     val background: Color,
     val text: Color,
     val white: Color,
+    val drag: Color
 ) {
     companion object{
         fun getLightColors() = ThemeColors(
@@ -27,7 +28,8 @@ data class ThemeColors(
             surface = Color(0xFFE9F4FF),
             background = Color(0xFFFFFFFF),
             text = Color(0xFF121212),
-            white = Color(0xFFFFFFFF)
+            white = Color(0xFFFFFFFF),
+            drag = Color(0xFFBFBFBF)
         )
 
         fun getDarkColors() = ThemeColors(
@@ -35,7 +37,8 @@ data class ThemeColors(
             surface = Color(0xFF142A3F),
             background = Color(0xFF121212),
             text = Color(0xFFFFFFFF),
-            white = Color(0xFFFFFFFF)
+            white = Color(0xFFFFFFFF),
+            drag = Color(0xFF4D4D4D)
         )
     }
 }

@@ -8,4 +8,5 @@
     <string name="error">Error:</string>
     <string name="cant_share">Failed to share fact =(</string>
     <string name="no_internet">No Internet connection</string>
+    <string name="drag">Drag</string>
 </resources>

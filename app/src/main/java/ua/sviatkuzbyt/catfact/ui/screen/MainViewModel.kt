@@ -26,8 +26,7 @@ class MainViewModel(
     val card: StateFlow<CardState> = _card
     val language: StateFlow<LanguageState> = _language
 
-    private val langCodes = languageManager.languageList.map { it.code }
-    private val langNames = languageManager.languageList.map { it.name }
+    private val languageList = languageManager.languageList
     private var langSelected = 0
 
     init {
@@ -39,7 +38,7 @@ class MainViewModel(
         _card.value = CardState.Loading
         try {
             if (networkMonitor.isConnected()){
-                val fact = factManager.getFactText(langCodes[langSelected])
+                val fact = factManager.getFactText(languageList[langSelected])
                 val imageUrl = imageManager.getImageUrl()
                 _card.value = CardState.Success(Fact(fact.data[0], imageUrl.url))
             } else {
@@ -74,7 +73,7 @@ class MainViewModel(
     fun changeLanguageVisibility() {
         _language.value = when (_language.value) {
             is LanguageState.Hidden -> LanguageState.Visible(
-                list = langNames,
+                list = languageList,
                 selectedIndex = langSelected
             )
             is LanguageState.Visible -> LanguageState.Hidden

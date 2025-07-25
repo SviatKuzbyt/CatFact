@@ -26,6 +26,12 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        create("profile"){
+            initWith(getByName("debug"))
+            isDebuggable = false
+            isProfileable = true
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
