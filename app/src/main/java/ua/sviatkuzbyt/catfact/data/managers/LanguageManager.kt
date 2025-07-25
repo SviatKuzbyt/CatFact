@@ -10,6 +10,19 @@ import kotlinx.coroutines.flow.map
 private val Context.languageStore by preferencesDataStore(name = "language")
 
 class LanguageManager(private val context: Context){
+    private val langKey = intPreferencesKey("langKey")
+
+    suspend fun getLang() =
+        context.languageStore.data.map {
+            it[langKey] ?: 0
+        }.first()
+
+    suspend fun languageList(value: Int){
+        context.languageStore.edit {
+            it[langKey] = value
+        }
+    }
+
     val languageList = listOf(
         "eng",
         "ben",
@@ -42,17 +55,4 @@ class LanguageManager(private val context: Context){
         "urd-ud",
         "zho-tw"
     )
-
-    private val langKey = intPreferencesKey("langKey")
-
-    suspend fun getLang() =
-        context.languageStore.data.map {
-            it[langKey] ?: 0
-        }.first()
-
-    suspend fun languageList(value: Int){
-        context.languageStore.edit {
-            it[langKey] = value
-        }
-    }
 }

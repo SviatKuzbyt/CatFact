@@ -16,6 +16,7 @@ import ua.sviatkuzbyt.catfact.ui.screen.MainViewModel
 
 val appModule = module {
 
+    //Retofit
     single<Converter.Factory> { GsonConverterFactory.create() }
 
     single(named("factApi")) {
@@ -32,8 +33,7 @@ val appModule = module {
             .build()
     }
 
-    viewModelOf(::MainViewModel)
-
+    //APIs
     factory {
         get<Retrofit>(named("factApi")).create(FactManager::class.java)
     }
@@ -42,6 +42,10 @@ val appModule = module {
         get<Retrofit>(named("imageApi")).create(ImageManager::class.java)
     }
 
+    //ViewModel
+    viewModelOf(::MainViewModel)
+
+    //Other
     factoryOf(::LanguageManager)
     factory<NetworkMonitor> { NetworkMonitorImpl(get()) }
 }

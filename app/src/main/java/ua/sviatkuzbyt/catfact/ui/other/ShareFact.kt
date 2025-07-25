@@ -50,17 +50,14 @@ fun shareFact(
             withContext(Dispatchers.Main) {
                 context.startActivity(
                     Intent.createChooser(
-                        shareIntent,
-                        context.getString(R.string.share)
+                        shareIntent, context.getString(R.string.share)
                     )
                 )
             }
         } catch (_: Exception) {
             withContext(Dispatchers.Main) {
                 Toast.makeText(
-                    context,
-                    R.string.cant_share,
-                    Toast.LENGTH_SHORT
+                    context, R.string.cant_share, Toast.LENGTH_SHORT
                 ).show()
             }
         }

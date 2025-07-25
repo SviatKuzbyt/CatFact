@@ -18,21 +18,21 @@ import ua.sviatkuzbyt.catfact.ui.elements.sheets.AboutSheet
 
 @Composable
 fun MainScreen(){
+    // Viewmodel
     val viewModel: MainViewModel = koinViewModel()
     val cardState by viewModel.card.collectAsState()
     val languageState by viewModel.language.collectAsState()
     val showAboutState by viewModel.showAbout.collectAsState()
 
+    // UI
     Column {
+        // Top bar
         TopBar(
-            onTittleClick = {
-                viewModel.changeAboutVisibility()
-            },
-            onLanguageClick = {
-                viewModel.changeLanguageVisibility()
-            }
+            onTittleClick = { viewModel.changeAboutVisibility() },
+            onLanguageClick = { viewModel.changeLanguageVisibility() }
         )
 
+        // Card
         Crossfade(
             targetState = cardState,
             modifier = Modifier.fillMaxWidth().weight(1f)
@@ -44,29 +44,26 @@ fun MainScreen(){
             }
         }
 
+        // Next button
         ButtonNext{
             viewModel.nextFact()
         }
 
+        // Language sheet
         if (languageState is LanguageState.Visible) {
             val state = languageState as LanguageState.Visible
             LanguageSheet(
                 languages = state.list,
                 selectedIndex = state.selectedIndex,
-                onSelect = {
-                    viewModel.setLanguage(it)
-                },
-                onClose = {
-                    viewModel.changeLanguageVisibility()
-                }
+                onSelect = { viewModel.setLanguage(it) },
+                onClose = { viewModel.changeLanguageVisibility() }
             )
         }
 
+        // About sheet
         if (showAboutState){
             AboutSheet(
-                onClose = {
-                    viewModel.changeAboutVisibility()
-                }
+                onClose = { viewModel.changeAboutVisibility() }
             )
         }
     }

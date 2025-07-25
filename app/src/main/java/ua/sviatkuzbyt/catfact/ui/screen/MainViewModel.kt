@@ -24,13 +24,12 @@ class MainViewModel(
     private val _card = MutableStateFlow<CardState>(CardState.Loading)
     private val _language = MutableStateFlow<LanguageState>(LanguageState.Hidden)
     private val _showAbout = MutableStateFlow(false)
+    private val languageList = languageManager.languageList
+    private var langSelected = 0
 
     val card: StateFlow<CardState> = _card
     val language: StateFlow<LanguageState> = _language
     val showAbout: StateFlow<Boolean> = _showAbout
-
-    private val languageList = languageManager.languageList
-    private var langSelected = 0
 
     init {
         getSelectedLanguageIndex()
@@ -49,6 +48,7 @@ class MainViewModel(
             }
 
         } catch (e: Exception) {
+            Log.e("SKLT", "Error in MainViewModel/loadFact", e)
             _card.value = CardState.Error(
                 ErrorTexts(
                     messageRes = R.string.error,
@@ -62,7 +62,7 @@ class MainViewModel(
         langSelected = try {
             languageManager.getLang()
         } catch (e: Exception) {
-            Log.e("SKLT", "Error in getSelectedLanguageIndex", e)
+            Log.e("SKLT", "Error in MainViewModel/getSelectedLanguageIndex", e)
             0
         }
     }
@@ -83,10 +83,6 @@ class MainViewModel(
         }
     }
 
-    fun changeAboutVisibility() {
-        _showAbout.value = !_showAbout.value
-    }
-
     fun setLanguage(index: Int) {
         if (index != langSelected) {
             langSelected = index
@@ -94,10 +90,14 @@ class MainViewModel(
                 try {
                     languageManager.languageList(langSelected)
                 } catch (e: Exception) {
-                    Log.e("SKLT", "Error in setLanguage", e)
+                    Log.e("SKLT", "Error in MainViewModel/setLanguage", e)
                 }
             }
         }
         _language.value = LanguageState.Hidden
+    }
+
+    fun changeAboutVisibility() {
+        _showAbout.value = !_showAbout.value
     }
 }

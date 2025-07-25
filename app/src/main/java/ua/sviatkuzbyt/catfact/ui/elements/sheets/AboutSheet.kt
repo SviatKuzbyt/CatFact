@@ -29,12 +29,9 @@ fun AboutSheet(
     ModalBottomSheet (
         onDismissRequest = onClose,
         containerColor = Theme.colors.background,
-        dragHandle = {
-            SheetDrag()
-        },
+        dragHandle = { SheetDrag() },
         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
     ) {
-
         Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp)) {
             SheetTitle(R.string.about)
 
