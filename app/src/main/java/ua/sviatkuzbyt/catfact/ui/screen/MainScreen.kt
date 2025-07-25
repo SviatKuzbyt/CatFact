@@ -8,23 +8,30 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import org.koin.androidx.compose.koinViewModel
-import ua.sviatkuzbyt.catfact.ui.elements.LanguageSheet
+import ua.sviatkuzbyt.catfact.ui.elements.sheets.LanguageSheet
 import ua.sviatkuzbyt.catfact.ui.elements.buttons.ButtonNext
 import ua.sviatkuzbyt.catfact.ui.elements.card.InfoCard
 import ua.sviatkuzbyt.catfact.ui.elements.TopBar
 import ua.sviatkuzbyt.catfact.ui.elements.card.ErrorCard
 import ua.sviatkuzbyt.catfact.ui.elements.card.LoadingCard
+import ua.sviatkuzbyt.catfact.ui.elements.sheets.AboutSheet
 
 @Composable
 fun MainScreen(){
     val viewModel: MainViewModel = koinViewModel()
     val cardState by viewModel.card.collectAsState()
     val languageState by viewModel.language.collectAsState()
+    val showAboutState by viewModel.showAbout.collectAsState()
 
     Column {
-        TopBar {
-            viewModel.changeLanguageVisibility()
-        }
+        TopBar(
+            onTittleClick = {
+                viewModel.changeAboutVisibility()
+            },
+            onLanguageClick = {
+                viewModel.changeLanguageVisibility()
+            }
+        )
 
         Crossfade(
             targetState = cardState,
@@ -51,6 +58,14 @@ fun MainScreen(){
                 },
                 onClose = {
                     viewModel.changeLanguageVisibility()
+                }
+            )
+        }
+
+        if (showAboutState){
+            AboutSheet(
+                onClose = {
+                    viewModel.changeAboutVisibility()
                 }
             )
         }

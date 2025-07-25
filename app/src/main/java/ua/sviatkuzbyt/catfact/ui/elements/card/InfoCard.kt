@@ -35,7 +35,7 @@ import coil3.request.crossfade
 import coil3.toBitmap
 import ua.sviatkuzbyt.catfact.R
 import ua.sviatkuzbyt.catfact.data.structures.Fact
-import ua.sviatkuzbyt.catfact.other.shareFact
+import ua.sviatkuzbyt.catfact.ui.other.shareFact
 import ua.sviatkuzbyt.catfact.ui.Theme
 import ua.sviatkuzbyt.catfact.ui.elements.buttons.ButtonIcon
 

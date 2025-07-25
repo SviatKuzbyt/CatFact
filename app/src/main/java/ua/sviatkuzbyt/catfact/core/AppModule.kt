@@ -1,7 +1,6 @@
 package ua.sviatkuzbyt.catfact.core
 
 import org.koin.core.module.dsl.factoryOf
-import org.koin.core.module.dsl.viewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -11,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import ua.sviatkuzbyt.catfact.data.managers.FactManager
 import ua.sviatkuzbyt.catfact.data.managers.ImageManager
 import ua.sviatkuzbyt.catfact.data.managers.LanguageManager
-import ua.sviatkuzbyt.catfact.other.NetworkMonitor
-import ua.sviatkuzbyt.catfact.other.NetworkMonitorImpl
+import ua.sviatkuzbyt.catfact.ui.other.NetworkMonitor
+import ua.sviatkuzbyt.catfact.ui.other.NetworkMonitorImpl
 import ua.sviatkuzbyt.catfact.ui.screen.MainViewModel
 
 val appModule = module {

@@ -9,4 +9,17 @@
     <string name="cant_share">Failed to share fact =(</string>
     <string name="no_internet">No Internet connection</string>
     <string name="drag">Drag</string>
+    <string name="about">About the app</string>
+    <string name="about_text">
+        View interesting random facts about cats along with the cutest photos. Developed by Sviatoslav Kuzbyt in July 2025.&lt;br/&gt;&lt;br/&gt;
+
+        &lt;b&gt;Links:&lt;/b&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="https://github.com/SviatKuzbyt/CatFact"&gt;Project on GitHub&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://github.com/wh-iterabb-it/meowfacts"&gt;Meowfacts API&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://cataas.com/"&gt;CATAAS (Cat as a Service) API&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://www.flaticon.com/"&gt;Flaticon Icons&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://fonts.google.com/icons?icon.style=Rounded"&gt;Material Icons&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    </string>
 </resources>

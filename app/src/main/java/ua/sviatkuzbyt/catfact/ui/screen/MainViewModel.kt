@@ -13,7 +13,7 @@ import ua.sviatkuzbyt.catfact.data.managers.ImageManager
 import ua.sviatkuzbyt.catfact.data.managers.LanguageManager
 import ua.sviatkuzbyt.catfact.data.structures.ErrorTexts
 import ua.sviatkuzbyt.catfact.data.structures.Fact
-import ua.sviatkuzbyt.catfact.other.NetworkMonitor
+import ua.sviatkuzbyt.catfact.ui.other.NetworkMonitor
 
 class MainViewModel(
     private val factManager: FactManager,
@@ -23,8 +23,11 @@ class MainViewModel(
 ): ViewModel() {
     private val _card = MutableStateFlow<CardState>(CardState.Loading)
     private val _language = MutableStateFlow<LanguageState>(LanguageState.Hidden)
+    private val _showAbout = MutableStateFlow(false)
+
     val card: StateFlow<CardState> = _card
     val language: StateFlow<LanguageState> = _language
+    val showAbout: StateFlow<Boolean> = _showAbout
 
     private val languageList = languageManager.languageList
     private var langSelected = 0
@@ -78,6 +81,10 @@ class MainViewModel(
             )
             is LanguageState.Visible -> LanguageState.Hidden
         }
+    }
+
+    fun changeAboutVisibility() {
+        _showAbout.value = !_showAbout.value
     }
 
     fun setLanguage(index: Int) {

@@ -1,4 +1,4 @@
-package ua.sviatkuzbyt.catfact.other
+package ua.sviatkuzbyt.catfact.ui.other
 
 import android.content.Context
 import android.net.ConnectivityManager

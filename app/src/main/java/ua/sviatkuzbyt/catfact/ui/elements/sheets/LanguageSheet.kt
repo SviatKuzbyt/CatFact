@@ -1,4 +1,4 @@
-package ua.sviatkuzbyt.catfact.ui.elements
+package ua.sviatkuzbyt.catfact.ui.elements.sheets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -51,15 +51,7 @@ fun LanguageSheet(
             contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 16.dp),
         ) {
             stickyHeader {
-                Text(
-                    text = stringResource(R.string.facts_language),
-                    style = Theme.types.bigBold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 8.dp)
-                        .background(color = Theme.colors.background)
-                )
+                SheetTitle(R.string.facts_language)
             }
 
             itemsIndexed(languages){ index, language ->
@@ -108,14 +100,4 @@ fun RadioItem(
             style = Theme.types.basic
         )
     }
-}
-
-@Composable
-private fun SheetDrag(){
-    Icon(
-        imageVector = ImageVector.vectorResource(R.drawable.drag_ic),
-        contentDescription = stringResource(R.string.drag),
-        tint = Theme.colors.drag,
-        modifier = Modifier.padding(vertical = 16.dp)
-    )
 }

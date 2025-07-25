@@ -1,5 +1,6 @@
 package ua.sviatkuzbyt.catfact.ui.elements
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import ua.sviatkuzbyt.catfact.R
 import ua.sviatkuzbyt.catfact.ui.Theme
@@ -19,6 +21,7 @@ import ua.sviatkuzbyt.catfact.ui.elements.buttons.ButtonIcon
 
 @Composable
 fun TopBar(
+    onTittleClick: () -> Unit,
     onLanguageClick: () -> Unit,
 ){
     Row(
@@ -28,19 +31,31 @@ fun TopBar(
             .padding(bottom = 8.dp)
     ) {
         //Logo
-        Icon(
-            imageVector = ImageVector.vectorResource(R.drawable.logo_ic),
-            contentDescription = stringResource(R.string.logo),
-            tint = Theme.colors.primary,
-            modifier = Modifier.size(24.dp)
-        )
-        Spacer(Modifier.size(16.dp))
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .clickable(
+                    onClick = onTittleClick,
+                    role = Role.Image,
+                    indication = null,
+                    interactionSource = null
+                )
+        ) {
+            Icon(
+                imageVector = ImageVector.vectorResource(R.drawable.logo_ic),
+                contentDescription = stringResource(R.string.logo),
+                tint = Theme.colors.primary,
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(Modifier.size(16.dp))
 
-        Text(
-            text = stringResource(R.string.app_name),
-            style = Theme.types.bigBold,
-            modifier = Modifier.weight(1f)
-        )
+            Text(
+                text = stringResource(R.string.app_name),
+                style = Theme.types.bigBold
+            )
+        }
+
+        Spacer(Modifier.weight(1f))
 
         //Buttons
         ButtonIcon(
