@@ -5,6 +5,7 @@
     <string name="share">Share fact</string>
     <string name="next">Next fact</string>
     <string name="loading">…</string>
-    <string name="error">Error</string>
+    <string name="error">Error:</string>
     <string name="cant_share">Failed to share fact =(</string>
+    <string name="no_internet">No Internet connection</string>
 </resources>

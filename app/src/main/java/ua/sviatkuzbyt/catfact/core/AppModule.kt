@@ -8,6 +8,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ua.sviatkuzbyt.catfact.data.managers.FactManager
 import ua.sviatkuzbyt.catfact.data.managers.ImageManager
+import ua.sviatkuzbyt.catfact.other.NetworkMonitor
+import ua.sviatkuzbyt.catfact.other.NetworkMonitorImpl
 import ua.sviatkuzbyt.catfact.ui.screen.MainViewModel
 
 val appModule = module {
@@ -28,7 +30,7 @@ val appModule = module {
             .build()
     }
 
-    viewModel { MainViewModel(get(), get()) }
+    viewModel { MainViewModel(get(), get(), get()) }
 
     factory {
         get<Retrofit>(named("factApi")).create(FactManager::class.java)
@@ -37,4 +39,6 @@ val appModule = module {
     factory {
         get<Retrofit>(named("imageApi")).create(ImageManager::class.java)
     }
+
+    factory<NetworkMonitor> { NetworkMonitorImpl(get()) }
 }

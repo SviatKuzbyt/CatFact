@@ -1,9 +1,7 @@
 package ua.sviatkuzbyt.catfact.ui.elements.card
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
@@ -23,6 +21,7 @@ fun LoadingCard(){
             modifier = Modifier.width(48.dp),
             color = Theme.colors.primary,
             trackColor = Theme.colors.surface,
+            strokeWidth = 3.dp
         )
     }
 }

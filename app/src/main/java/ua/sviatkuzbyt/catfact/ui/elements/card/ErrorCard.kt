@@ -2,10 +2,8 @@ package ua.sviatkuzbyt.catfact.ui.elements.card
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
@@ -19,10 +17,11 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ua.sviatkuzbyt.catfact.R
+import ua.sviatkuzbyt.catfact.data.structures.ErrorTexts
 import ua.sviatkuzbyt.catfact.ui.Theme
 
 @Composable
-fun ErrorCard(message: String){
+fun ErrorCard(errorTexts: ErrorTexts){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -36,13 +35,13 @@ fun ErrorCard(message: String){
             modifier = Modifier.size(48.dp)
         )
 
-        Spacer(Modifier.size(16.dp))
+        Spacer(Modifier.size(32.dp))
 
         Text(
-            text = "${stringResource(R.string.error)}: $message",
+            text = "${stringResource(errorTexts.messageRes)} ${errorTexts.message ?: ""}",
             style = Theme.types.basic,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(vertical = 32.dp)
+            modifier = Modifier.padding(horizontal = 32.dp)
         )
     }
 }

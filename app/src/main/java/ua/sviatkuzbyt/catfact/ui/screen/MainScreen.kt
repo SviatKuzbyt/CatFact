@@ -26,7 +26,7 @@ fun MainScreen(){
             modifier = Modifier.fillMaxWidth().weight(1f)
         ){
             when(it){
-                is CardState.Error -> ErrorCard(it.message)
+                is CardState.Error -> ErrorCard(it.errorTexts)
                 CardState.Loading -> LoadingCard()
                 is CardState.Success -> InfoCard(it.fact)
             }
