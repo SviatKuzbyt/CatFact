@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -21,11 +22,10 @@ import ua.sviatkuzbyt.catfact.R
 import ua.sviatkuzbyt.catfact.ui.Theme
 
 @Composable
-fun ColumnScope.ErrorCard(message: String){
+fun ErrorCard(message: String){
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .weight(1f),
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
