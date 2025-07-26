@@ -38,21 +38,6 @@ class LanguageManager(private val context: Context){
         "rus",
         "ukr",
         "urd",
-        "zho",
-        "ben-in",
-        "ces-cz",
-        "eng-us",
-        "esp-es",
-        "esp-mx",
-        "fil-tl",
-        "fra-fr",
-        "ger-de",
-        "ita-it",
-        "kor-ko",
-        "por-br",
-        "rus-ru",
-        "ukr-ua",
-        "urd-ud",
-        "zho-tw"
+        "zho"
     )
 }

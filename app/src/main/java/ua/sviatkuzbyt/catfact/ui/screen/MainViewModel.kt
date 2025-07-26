@@ -32,8 +32,9 @@ class MainViewModel(
     val showAbout: StateFlow<Boolean> = _showAbout
 
     init {
-        getSelectedLanguageIndex()
-        loadFact()
+        getSelectedLanguageIndex().invokeOnCompletion {
+            loadFact()
+        }
     }
 
     private fun loadFact() = viewModelScope.launch(Dispatchers.IO) {
